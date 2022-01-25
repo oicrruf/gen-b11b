@@ -1,0 +1,29 @@
+{
+  "name": "pokeapi",
+  "version": "1.0.0",
+  "description": "Aplicación de ejemplo para clase",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "echo DEVELOPMENT MODE && nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oicrruf/gen-b11b.git"
+  },
+  "keywords": [
+    "[node",
+    "js",
+    "app]"
+  ],
+  "author": "oicrruf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oicrruf/gen-b11b/issues"
+  },
+  "homepage": "https://github.com/oicrruf/gen-b11b#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
