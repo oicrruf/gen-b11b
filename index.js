@@ -4,7 +4,7 @@ const fs = require('fs');
 const readline = require("readline");
 const { stdin: input, stdout: output } = require("process");
 
-console.log("Bienvenido 🐨");
+console.log("Bienvenido 🐹");
 
 let file = {};
 
