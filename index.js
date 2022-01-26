@@ -14,21 +14,27 @@ if (!fs.existsSync('user')){
 
 const rl = readline.createInterface({ input, output });
 
-rl.question("¿Cuál es tu nombre de usuario? ", (user) => {
-  file.user = user;
-  file.os = os.platform();
-  file.hostname = os.hostname();
-  file.createAt = moment();
+// rl.question("¿Cuál es tu nombre de usuario? ", (user) => {
+//   file.user = user;
+//   file.os = os.platform();
+//   file.hostname = os.hostname();
+//   file.createAt = moment();
   
-  fs.writeFile(`./user/${user}.json`, JSON.stringify(file), (err)=> {
-    if (err) {
-      console.log(err)
-    } else {
-      console.log('Archivo creado')
-    }
-  })
-  rl.close();
-});
+//   fs.writeFile(`./user/${user}.json`, JSON.stringify(file), (err)=> {
+//     if (err) {
+//       console.log(err)
+//     } else {
+//       console.log('Archivo creado')
+//     }
+//   })
+//   rl.close();
+// });
 
-
+fs.readFile('./user/oicrruf.json', (err, data)=> {
+ if (err) {
+   console.log(err)
+ } else {
+   console.log(JSON.parse(data.toString()))
+ }
+})
 
