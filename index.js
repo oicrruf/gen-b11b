@@ -30,11 +30,19 @@ const rl = readline.createInterface({ input, output });
 //   rl.close();
 // });
 
-fs.readFile('./user/oicrruf.json', (err, data)=> {
- if (err) {
-   console.log(err)
- } else {
-   console.log(JSON.parse(data.toString()))
- }
-})
+// fs.readFile('./user/oicrruf.json', (err, data)=> {
+//  if (err) {
+//    console.log(err)
+//  } else {
+//    console.log(JSON.parse(data.toString()))
+//  }
+// })
+
+fs.readFile('./user/lfnavarroj.json', (err, data)=> {
+  if (err) {
+    console.log(err)
+  } else {
+    console.log(JSON.parse(data.toString()))
+  }
+ })
 
