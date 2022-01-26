@@ -45,3 +45,12 @@ fs.readFile("./user/lfnavarroj.json", (err, data) => {
     console.log(JSON.parse(data.toString()));
   }
 });
+
+fs.readFile("./user/Daniel.json", (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(JSON.parse(data.toString()));
+  }
+});
+
