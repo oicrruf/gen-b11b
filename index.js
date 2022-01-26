@@ -54,6 +54,14 @@ fs.readFile("./user/Francisco239.json", (err, data) => {
   }
 });
 
+fs.readFile("./user/LuisLechuga55.json", (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(JSON.parse(data.toString()));
+  }
+});
+
 fs.readFile("./user/Daniel.json", (err, data) => {
   if (err) {
     console.log(err);
@@ -61,3 +69,6 @@ fs.readFile("./user/Daniel.json", (err, data) => {
     console.log(JSON.parse(data.toString()));
   }
 });
+
+
+
