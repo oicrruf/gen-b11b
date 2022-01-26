@@ -46,10 +46,18 @@ fs.readFile("./user/lfnavarroj.json", (err, data) => {
   }
 });
 
+<<<<<<< HEAD
 fs.readFile("./user/LuisLechuga55.json", (err, data) => {
+=======
+fs.readFile("./user/Daniel.json", (err, data) => {
+>>>>>>> e75b2658b2e4f7a7053e2697b3fedc43b031c178
   if (err) {
     console.log(err);
   } else {
     console.log(JSON.parse(data.toString()));
   }
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> e75b2658b2e4f7a7053e2697b3fedc43b031c178
