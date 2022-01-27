@@ -1,13 +1,12 @@
 const fs = require("fs");
-const printContent = require('./printContentFiles')
+const printContent = require("./printContentFiles");
+const filesDetails = require("./directoryTree");
 
-console.log(printContent)
 
 fs.readdir("./users", (err, files) => {
   if (err) {
     console.log(err);
   } else {
-    printContent(files);
+    printContent(filesDetails.children);
   }
 });
-

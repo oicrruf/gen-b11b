@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "echo DEVELOPMENT MODE && nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1", 
+    "test": "echo \"Error: no test specified\" && exit 1",
     "getUser": "node modules/getUser.js"
   },
   "repository": {
@@ -28,6 +28,7 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "directory-tree": "^3.0.1",
     "moment": "^2.29.1"
   }
 }
