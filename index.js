@@ -8,11 +8,11 @@ console.log("Bienvenido 🐹");
 
 let file = {};
 
-if (!fs.existsSync("user")) {
-  fs.mkdirSync("user");
+if (!fs.existsSync("users")) {
+  fs.mkdirSync("users");
 }
 
-const rl = readline.createInterface({ input, output });
+// const rl = readline.createInterface({ input, output });
 
 // rl.question("¿Cuál es tu nombre de usuario? ", (user) => {
 //   file.user = user;
@@ -20,55 +20,33 @@ const rl = readline.createInterface({ input, output });
 //   file.hostname = os.hostname();
 //   file.createAt = moment();
 
-//   fs.writeFile(`./user/${user}.json`, JSON.stringify(file), (err)=> {
+//   fs.writeFile(`./users/${user}.json`, JSON.stringify(file), (err) => {
 //     if (err) {
-//       console.log(err)
+//       console.log(err);
 //     } else {
-//       console.log('Archivo creado')
+//       console.log("Archivo creado");
 //     }
-//   })
+//   });
+
 //   rl.close();
 // });
 
-fs.readFile("./user/oicrruf.json", (err, data) => {
+const readFiles = (files) => {
+  files.forEach((file) => {
+    fs.readFile(`./users/${file}`, (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(JSON.parse(data.toString()));
+      }
+    });
+  });
+};
+
+fs.readdir("./users", (err, files) => {
   if (err) {
     console.log(err);
   } else {
-    console.log(JSON.parse(data.toString()));
+    readFiles(files);
   }
 });
-
-fs.readFile("./user/lfnavarroj.json", (err, data) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(JSON.parse(data.toString()));
-  }
-});
-
-fs.readFile("./user/Francisco239.json", (err, data) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(JSON.parse(data.toString()));
-  }
-});
-
-fs.readFile("./user/LuisLechuga55.json", (err, data) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(JSON.parse(data.toString()));
-  }
-});
-
-fs.readFile("./user/Daniel.json", (err, data) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(JSON.parse(data.toString()));
-  }
-});
-
-
-
