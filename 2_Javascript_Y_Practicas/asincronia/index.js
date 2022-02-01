@@ -14,6 +14,7 @@ setTimeout(() => {
 console.log('3 Terminando');
 */
 
+// Solucion 1 Callbacks (NO ES RECOMENDADA por casos de callbackhell)
 function run() {
     console.log('1 Inicio');
     myFuncion(ejecutando);
@@ -24,13 +25,11 @@ function myFuncion(ejecutando) {
     setTimeout(() => {
         console.log('2 Ejecutando');
         ejecutando();
-        
     }, 0000)
 }
 
 function ejecutando() {
     console.log('3 Terminando');
-    
 }
 
 run();
