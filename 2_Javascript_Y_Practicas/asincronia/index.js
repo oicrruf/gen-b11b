@@ -1,3 +1,4 @@
+// BLOQUE 1
 // Codigo ejecutado linea tras linea por el eventloop
 /*
 console.log('1 Inicio');
@@ -5,6 +6,7 @@ console.log('2 Ejecutando');
 console.log('3 Terminando');
 */
 
+// BLOQUE 2
 // Ejecucion que toma tiempo siempre va al event queue
 /*
 console.log('1 Inicio');
@@ -14,6 +16,7 @@ setTimeout(() => {
 console.log('3 Terminando');
 */
 
+// BLOQUE 3
 // Solucion 1 Callbacks (NO ES RECOMENDADA por casos de callbackhell)
 /*
 function run() {
@@ -37,6 +40,7 @@ function ejecutando() {
 run();
 */
 
+// BLOQUE 4
 // Solucion 2 Promesas
 // Promise: Algo que va a ocurrir pero no sabemos cuando va a ocurrir.
 // Estados de las promesas: Pendiente (pending), resuelto (resolve) y rechazado (reject)
@@ -51,6 +55,7 @@ function asincrona() {
     });
 }
 
+// BLOQUE 5
 console.log('1 Inicio');
 asincrona().then(() => {
     // Siguientes acciones despues de que responde la promesa con resolve()
@@ -75,6 +80,7 @@ asincrona().then(() => {
 })
 */
 
+// BLOQUE 6
 // Async - await
 function generateReport() {
     return new Promise((resolve, reject) => {
@@ -105,3 +111,4 @@ run();
 
 // SINCRONO: Una linea de codigo se ejecuta en orden y siempre despues de otra
 // ASINCRONO: No necesariamente el codigo se ejecuta linea por linea (secuencialmente)
+// callback, promise, await => manejar la asincronia del codigo
