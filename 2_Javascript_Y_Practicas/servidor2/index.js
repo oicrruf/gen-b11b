@@ -5,9 +5,9 @@ const fs = require('fs');
 const server = http.createServer((req, res) => {
     // 1 Obtener la path de la url que el usuario solicita
     const urlObject = url.parse(req.url);
-    const path = urlObject.path
+    const path = urlObject.path;
     let fileSystemPath = '';
-    console.log(`Path: ${path}`)
+    console.log(`Path: ${path}`);
 
     // 2 Validar la ruta o path solicitado
     if (path === '/') {
