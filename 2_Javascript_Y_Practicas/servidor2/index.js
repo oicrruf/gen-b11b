@@ -13,3 +13,4 @@ const server = http.createServer((req, res) => {
 
 server.listen(8080);
 console.log('Inicie mi servidor');
+// http://localhost:8080/customers/patitos
