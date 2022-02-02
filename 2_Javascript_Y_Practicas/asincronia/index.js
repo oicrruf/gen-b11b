@@ -40,6 +40,7 @@ run();
 // Solucion 2 Promesas
 // Promise: Algo que va a ocurrir pero no sabemos cuando va a ocurrir.
 // Estados de las promesas: Pendiente (pending), resuelto (resolve) y rechazado (reject)
+/*
 function asincrona() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -55,6 +56,14 @@ asincrona().then(() => {
     // Siguientes acciones despues de que responde la promesa con resolve()
     console.log('en el then');
     console.log('3 Terminando');
+    // siguiente paso
+    // asincrona2
+    // .then(
+    //     asincrona3.then()
+    //     ...
+    // )
+    // .catch()
+    // .finally()
 }).catch(error => { 
     // Siguientes acciones despues de que responde la promesa con reject()
     console.log('error: ', error)
@@ -64,3 +73,35 @@ asincrona().then(() => {
     console.log('4 FIN');
     console.log('en el finally')
 })
+*/
+
+// Async - await
+function generateReport() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('2 en generacion del reporte');
+            resolve();
+        }, 4000)
+    });
+}
+
+function getPromotions() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('3 obtiendo promociones');
+            resolve();
+        }, 4000)
+    });
+}
+
+async function run() {
+    console.log('1 Inicio');
+    await generateReport();
+    await getPromotions();
+    console.log('4 Terminando');
+}
+
+run();
+
+// SINCRONO: Una linea de codigo se ejecuta en orden y siempre despues de otra
+// ASINCRONO: No necesariamente el codigo se ejecuta linea por linea (secuencialmente)
