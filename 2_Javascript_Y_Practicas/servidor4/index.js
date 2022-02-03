@@ -2,13 +2,15 @@ const http = require('http');
 const url = require('url');
 const fs = require('fs');
 
-const mime = {
+const CONTENT_TYPE = 'Content-Type';
+const MIME = {
     html: 'text/html',
     css: 'text/css',
     jpg: 'image/jpg',
     icon: 'image/x-icon',
     mp3: 'audio/mpeg3',
     mp4: 'audio/mp4',
+    json: 'application/json'
 };
 
 // SERVIDOR
@@ -27,14 +29,14 @@ const server = http.createServer((req, res) => {
                     status = 200;
                     const aux = path.split('.'); // '/musica.mp3' => [ '/musica', 'mp3' ]
                     const extension = aux[ aux.length-1 ];
-                    const mimeType = mime[extension];
-                    res.writeHead(status, { 'Content-Type' : mimeType } );
+                    const mimeType = MIME[extension];
+                    res.writeHead(status, { CONTENT_TYPE : mimeType } );
                     res.write(file);
                     res.end();
                 } else {
                     status = 500;
                     response = { message: 'Internal server error' };
-                    res.writeHead(status, { 'Content-Type' : 'application/json' } );
+                    res.writeHead(status, { CONTENT_TYPE : MIME.json } );
                     res.write(response);
                     res.end();
                 }
@@ -42,7 +44,7 @@ const server = http.createServer((req, res) => {
         } else {
             status = 404;
             response = { message: 'Not found' };
-            res.writeHead(status, { 'Content-Type' : 'application/json' } );
+            res.writeHead(status, { CONTENT_TYPE: MIME.json } );
             res.write(response);
             res.end();
         }
