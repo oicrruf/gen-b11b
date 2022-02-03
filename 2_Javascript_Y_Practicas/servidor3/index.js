@@ -20,6 +20,9 @@ const server = http.createServer((req, res) => {
     } else if (path === '/loquesea.txt') {
         responseStr = { message: 'Not found' };
         status = 404;
+    } else {
+        responseStr = { message: 'Not allowed' };
+        status = 405;
     }
 
     const responseStringify = JSON.stringify(responseStr);
