@@ -7,9 +7,9 @@ const MIME = {
     html: 'text/html',
     css: 'text/css',
     jpg: 'image/jpg',
-    icon: 'image/x-icon',
+    ico: 'image/x-icon',
     mp3: 'audio/mpeg3',
-    mp4: 'audio/mp4',
+    mp4: 'video/mp4',
     json: 'application/json'
 };
 
@@ -20,14 +20,15 @@ const server = http.createServer((req, res) => {
     console.log(`Este es mi path: ${path}`);
     let response = '';
     let status = 0;
+    let fileSystemPath = '';
 
-    let fileSystemPath = `static/${path}`;
+    fileSystemPath = `static${path}`;
     fs.stat(fileSystemPath, error => {
         if (!error) {
             fs.readFile(fileSystemPath, (error, file) => {
                 if (!error) {
                     status = 200;
-                    const aux = path.split('.'); // '/musica.mp3' => [ '/musica', 'mp3' ]
+                    const aux = fileSystemPath.split('.'); // '/musica.mp3' => [ '/musica', 'mp3' ]
                     const extension = aux[ aux.length-1 ];
                     const mimeType = MIME[extension];
                     res.writeHead(status, { CONTENT_TYPE : mimeType } );
