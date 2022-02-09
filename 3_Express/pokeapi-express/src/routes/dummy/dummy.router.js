@@ -1,7 +1,7 @@
-const express = express('express');
+const express = require('express');
 const dummyRouter = express.Router();
 
-dummyRouter.get("/", (req, res) => {
+dummyRouter.get("/saluda", (req, res) => {
 	res.send("hola mundo!");
 });
 

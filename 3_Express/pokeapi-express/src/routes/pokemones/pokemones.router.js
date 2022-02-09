@@ -1,4 +1,4 @@
-const express = express('express');
+const express = require('express');
 const pokemonRouter = express.Router();
 
 pokemonRouter.get("/", (req, res) => {

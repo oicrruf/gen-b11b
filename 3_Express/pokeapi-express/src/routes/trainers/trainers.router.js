@@ -1,4 +1,4 @@
-const express = express('express');
+const express = require('express');
 const trainerRouter = express.Router();
 
 trainerRouter.get("/trainer", (req, res) => {
