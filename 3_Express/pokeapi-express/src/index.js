@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
 	res.send("hola mundo!");
 });
@@ -31,6 +33,15 @@ app.get("/trainers", (req, res) => {
 	} else {
 		res.send('Parametro obligatorios');
 	}
+});
+
+app.post('/trainer', (req, res) => {
+	const body = req.body;
+	console.log('body:', body);
+	res.json({
+		message: 'created',
+		data: body
+	});
 });
 
 app.listen(port, () => {
