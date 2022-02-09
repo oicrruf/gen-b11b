@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js",
-		"eslint": "npx eslint --fix ./src"
+    "dev": "nodemon src/index.js",
+    "eslint": "npx eslint --fix ./src"
   },
   "author": "",
   "license": "ISC",
