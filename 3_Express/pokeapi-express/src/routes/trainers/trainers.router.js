@@ -2,24 +2,20 @@ const express = require('express');
 const trainerRouter = express.Router();
 
 trainerRouter.get("/", (req, res) => {
-	const objeto = [ { id: 1, name: "jose montoya", age: 32 }, { id: '1', name: "ash ketchum", age: 10, region: '3' } ];
+    const { page, size } = req.query;
+	const objeto = [ 
+        { id: 1, name: "jose montoya", age: 32 }, 
+        { id: 2, name: "ash ketchum", age: 10, region: '3' },
+        { id: 3, name: "gary oak", age: 10, region: '3' },
+    ];
+    let data = [];
+    if (page && size) {
+        data = objeto.splice(0, 2);
+	} else {
+		data = objeto;
+	}
     // LOGICA CON LA BASE DE DATOS
-	res.json(objeto);
-});
-
-trainerRouter.get("/:id", (req, res) => {
-	const objeto = { id: 1, name: "jose montoya", age: 32 };
-    // LOGICA CON LA BASE DE DATOS
-	res.json(objeto);
-});
-
-// Request Param: Ejecutar una operaciones sobre un elemento especifico
-// http://localhost:3000/trainers?page=34&size=12
-trainerRouter.get("/:idTrainer/region/:idRegion", (req, res) => {
-	const { idTrainer, idRegion } = req.params; 
-	const objeto = { id: idTrainer, name: "ash ketchum", age: 10, region: idRegion };
-    // LOGICA CON LA BASE DE DATOS
-	res.json(objeto);
+	res.json(data);
 });
 
 // Query Params: Filtrar la informacion
@@ -37,6 +33,13 @@ trainerRouter.get("/", (req, res) => {
 	}
 });
 
+// Request Param: Ejecutar una operaciones sobre un elemento especifico
+trainerRouter.get("/:id", (req, res) => {
+	const objeto = { id: 1, name: "jose montoya", age: 32 };
+    // LOGICA CON LA BASE DE DATOS
+	res.json(objeto);
+});
+
 trainerRouter.post('/', (req, res) => {
 	const body = req.body;
 	console.log('body:', body);
@@ -47,12 +50,13 @@ trainerRouter.post('/', (req, res) => {
 	});
 });
 
-trainerRouter.delete('/:id', (req, res) => {
+trainerRouter.patch('/', (req, res) => {
+    const body = req.body;
     const id = req.params.id;
     // LOGICA CON LA BASE DE DATOS
     res.json({
-        message: 'deleted',
-        id
+        message: 'updated partial',
+        id,
     });
 });
 
@@ -67,14 +71,12 @@ trainerRouter.put('/:id', (req, res) => {
     });
 });
 
-trainerRouter.patch('/', (req, res) => {
-    const body = req.body;
+trainerRouter.delete('/:id', (req, res) => {
     const id = req.params.id;
     // LOGICA CON LA BASE DE DATOS
     res.json({
-        message: 'updated partial',
-        id,
+        message: 'deleted',
+        id
     });
 });
-
 module.exports = trainerRouter;
