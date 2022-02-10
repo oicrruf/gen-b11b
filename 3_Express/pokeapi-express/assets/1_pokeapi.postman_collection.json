@@ -23,7 +23,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url-base}}/trainers/?page=1&size=10&orderBy=A",
+					"raw": "{{url-base}}/trainers/?page=1&size=10",
 					"host": [
 						"{{url-base}}"
 					],
@@ -42,7 +42,8 @@
 						},
 						{
 							"key": "orderBy",
-							"value": "A"
+							"value": "A",
+							"disabled": true
 						}
 					]
 				}
@@ -201,7 +202,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": \"4\",\n    \"name\": \"gary oak\",\n    \"age\": 11,\n    \"region\": \"999\"\n}",
+					"raw": "{\n    \"id\": 6,\n    \"name\": \"tracey\",\n    \"age\": 13,\n    \"region\": \"2\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -288,7 +289,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"brock\"\n}",
+					"raw": "{\n    \"name\": \"sabrina\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -296,13 +297,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url-base}}/trainers/3",
+					"raw": "{{url-base}}/trainers/5",
 					"host": [
 						"{{url-base}}"
 					],
 					"path": [
 						"trainers",
-						"3"
+						"5"
 					]
 				}
 			},
@@ -377,7 +378,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"id\": \"4\",\n    \"name\": \"gary oak\",\n    \"age\": 11,\n    \"region\": \"999\"\n}",
+					"raw": "{\n    \"id\": \"5\",\n    \"name\": \"Jessie\",\n    \"age\": 28,\n    \"region\": \"999999\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -385,13 +386,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url-base}}/trainers/3",
+					"raw": "{{url-base}}/trainers/5",
 					"host": [
 						"{{url-base}}"
 					],
 					"path": [
 						"trainers",
-						"3"
+						"5"
 					]
 				}
 			},
