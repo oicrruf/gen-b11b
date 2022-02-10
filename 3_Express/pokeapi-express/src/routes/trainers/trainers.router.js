@@ -19,11 +19,7 @@ trainerRouter.get("/", (req, res) => {
 });
 
 // Query Params: Filtrar la informacion
-// http://localhost:3000/trainers?page=34&size=12
 trainerRouter.get("/", (req, res) => {
-	// const page = req.query.page;
-	// const size = req.query.size;
-	// { page: 1, size: 10 }
 	const { page, size } = req.query; 
     // LOGICA CON LA BASE DE DATOS
 	if (page && size) {
@@ -50,13 +46,14 @@ trainerRouter.post('/', (req, res) => {
 	});
 });
 
-trainerRouter.patch('/', (req, res) => {
+trainerRouter.patch('/:id', (req, res) => {
     const body = req.body;
     const id = req.params.id;
     // LOGICA CON LA BASE DE DATOS
     res.json({
         message: 'updated partial',
         id,
+        data: body
     });
 });
 
