@@ -1,20 +1,20 @@
 const express = require('express');
 const trainerRouter = express.Router();
+const TrainersServices = require('../../services/trainers/trainers.services');
+
+const serviceTrainerObject = new TrainersServices();
 
 trainerRouter.get("/", (req, res) => {
     const { page, size } = req.query;
-	const objeto = [ 
-        { id: 1, name: "jose montoya", age: 32 }, 
-        { id: 2, name: "ash ketchum", age: 10, region: '3' },
-        { id: 3, name: "gary oak", age: 10, region: '3' },
-    ];
-    let data = [];
+    const allTrainers = serviceTrainerObject.find();
+    let pagination = {};
     if (page && size) {
-        data = objeto.splice(0, 2);
-	} else {
-		data = objeto;
-	}
-    // LOGICA CON LA BASE DE DATOS
+        pagination = { page, size };
+	} 
+    let data = {
+        data: allTrainers,
+        pagination
+    }
 	res.json(data);
 });
 
