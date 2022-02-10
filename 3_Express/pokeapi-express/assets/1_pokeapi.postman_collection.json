@@ -1,0 +1,419 @@
+{
+	"info": {
+		"_postman_id": "7b746253-18aa-4130-ae53-4e47c411c9b2",
+		"name": "1_pokeapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getTrainers",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"const dateNow = new Date();",
+							"pm.environment.set('currentDate', dateNow.toISOString());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url-base}}/trainers/?page=1&size=10&orderBy=A",
+					"host": [
+						"{{url-base}}"
+					],
+					"path": [
+						"trainers",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "orderBy",
+							"value": "A"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getTrainers with params",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-base}}/trainers/?page=1&size=10",
+							"host": [
+								"{{url-base}}"
+							],
+							"path": [
+								"trainers",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "93"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5d-rgzR0yR4PgiQ0QQVsu3J689Ss2M\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Feb 2022 00:59:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"jose montoya\",\n        \"age\": 32\n    },\n    {\n        \"id\": 2,\n        \"name\": \"ash ketchum\",\n        \"age\": 10,\n        \"region\": \"3\"\n    }\n]"
+				},
+				{
+					"name": "getTrainers",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-base}}/trainers/",
+							"host": [
+								"{{url-base}}"
+							],
+							"path": [
+								"trainers",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "size",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "142"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8e-vLPuQ6sg5WtqZCWVh/s0aJOdG9Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Feb 2022 00:59:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"jose montoya\",\n        \"age\": 32\n    },\n    {\n        \"id\": 2,\n        \"name\": \"ash ketchum\",\n        \"age\": 10,\n        \"region\": \"3\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"gary oak\",\n        \"age\": 10,\n        \"region\": \"3\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "getOneTrainer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url-base}}/trainers/5",
+					"host": [
+						"{{url-base}}"
+					],
+					"path": [
+						"trainers",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTrainer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"4\",\n    \"name\": \"gary oak\",\n    \"age\": 11,\n    \"region\": \"999\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url-base}}/trainers",
+					"host": [
+						"{{url-base}}"
+					],
+					"path": [
+						"trainers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createTrainer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"4\",\n    \"name\": \"gary oak\",\n    \"age\": 11,\n    \"region\": \"999\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base}}/trainers",
+							"host": [
+								"{{url-base}}"
+							],
+							"path": [
+								"trainers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "81"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"51-TxnXhfSZR5iTfXDjwSgagCxNXvo\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Feb 2022 01:03:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"created\",\n    \"data\": {\n        \"id\": \"4\",\n        \"name\": \"gary oak\",\n        \"age\": 11,\n        \"region\": \"999\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "editPartialTrainer",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"brock\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url-base}}/trainers/3",
+					"host": [
+						"{{url-base}}"
+					],
+					"path": [
+						"trainers",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "editPartialTrainer",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"brock\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-base}}/trainers/3",
+							"host": [
+								"{{url-base}}"
+							],
+							"path": [
+								"trainers",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "62"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3e-CWBimJwfUUasSR5JQbYlu+3n4Yk\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Feb 2022 01:13:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"updated partial\",\n    \"id\": \"3\",\n    \"data\": {\n        \"name\": \"brock\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "editCompleteTrainer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"4\",\n    \"name\": \"gary oak\",\n    \"age\": 11,\n    \"region\": \"999\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url-base}}/trainers/3",
+					"host": [
+						"{{url-base}}"
+					],
+					"path": [
+						"trainers",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTrainer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url-base}}/trainers/6",
+					"host": [
+						"{{url-base}}"
+					],
+					"path": [
+						"trainers",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
