@@ -4,9 +4,13 @@ const TrainersServices = require('../../services/trainers/trainers.services');
 
 const serviceTrainerObject = new TrainersServices();
 
-trainerRouter.get("/", (req, res) => {
+trainerRouter.get("/", async (req, res) => {
+    console.log('1 recibiendo solicitud...')
     const { page, size } = req.query;
-    const allTrainers = serviceTrainerObject.find();
+    // SLOW OPERATION
+    const allTrainers = await serviceTrainerObject.find();
+    // 
+    console.log('3 resuelve slow...')
     let pagination = {};
     if (page && size) {
         pagination = { page, size };
@@ -15,6 +19,7 @@ trainerRouter.get("/", (req, res) => {
         data: allTrainers,
         pagination
     }
+    console.log('4 regresando respuesta...')
 	res.json(data);
 });
 

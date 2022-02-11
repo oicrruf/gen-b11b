@@ -17,8 +17,18 @@ class TrainersService {
     }
 
     find(params) {
-        const allTrainers = this.trainers;
-        return allTrainers;
+        console.log('2 buscando');
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const allTrainers = this.trainers;
+                console.log('2.1 encontrado', allTrainers);
+                resolve(allTrainers);
+            }, 1000);
+        })
+        // console.log('2 buscando')
+        // const allTrainers = this.trainers;
+        // console.log('2.1 encontrado')
+        // return allTrainers;
     }
 
     findOne(id) {
