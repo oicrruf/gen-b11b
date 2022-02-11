@@ -8,6 +8,7 @@ trainerRouter.get("/", async (req, res) => {
     console.log('1 recibiendo solicitud...')
     const { page, size } = req.query;
     // SLOW OPERATION
+    // keywords
     const allTrainers = await serviceTrainerObject.find();
     // 
     console.log('3 resuelve slow...')
@@ -24,9 +25,9 @@ trainerRouter.get("/", async (req, res) => {
 });
 
 // Request Param: Ejecutar una operaciones sobre un elemento especifico
-trainerRouter.get("/:id", (req, res) => {
+trainerRouter.get("/:id", async (req, res) => {
     const id = req.params.id;
-    const trainer = serviceTrainerObject.findOne(id);
+    const trainer = await serviceTrainerObject.findOne(id);
 	res.json(trainer);
 });
 
@@ -39,10 +40,10 @@ trainerRouter.post('/', (req, res) => {
 	});
 });
 
-trainerRouter.patch('/:id', (req, res) => {
+trainerRouter.patch('/:id', async (req, res) => {
     const body = req.body;
     const id = req.params.id;
-    serviceTrainerObject.editPartial(id, body);
+    await serviceTrainerObject.editPartial(id, body);
     res.json({
         message: 'updated partial',
         id,
@@ -50,10 +51,10 @@ trainerRouter.patch('/:id', (req, res) => {
     });
 });
 
-trainerRouter.put('/:id', (req, res) => {
+trainerRouter.put('/:id', async (req, res) => {
     const body = req.body;
     const id = req.params.id;
-    serviceTrainerObject.updateComplete(id, body);
+    await serviceTrainerObject.updateComplete(id, body);
     res.json({
         message: 'updated all',
         id,
@@ -61,9 +62,9 @@ trainerRouter.put('/:id', (req, res) => {
     });
 });
 
-trainerRouter.delete('/:id', (req, res) => {
+trainerRouter.delete('/:id', async (req, res) => {
     const id = req.params.id;
-    serviceTrainerObject.delete(id);
+    await serviceTrainerObject.delete(id);
     res.json({
         message: 'deleted',
         id

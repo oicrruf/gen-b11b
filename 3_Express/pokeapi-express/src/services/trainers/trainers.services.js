@@ -23,44 +23,64 @@ class TrainersService {
                 const allTrainers = this.trainers;
                 console.log('2.1 encontrado', allTrainers);
                 resolve(allTrainers);
-            }, 1000);
+            }, 0);
         })
-        // console.log('2 buscando')
-        // const allTrainers = this.trainers;
-        // console.log('2.1 encontrado')
-        // return allTrainers;
     }
 
     findOne(id) {
-        const trainer = this.trainers.find(trainer => trainer.id === parseInt(id));
-        return trainer;
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const trainer = this.trainers.find(trainer => trainer.id === parseInt(id));
+                resolve(trainer);
+            })
+        }, 1000);
     }
 
     create(newTrainer) {
-        this.trainers.push(newTrainer);
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                this.trainers.push(newTrainer);
+                resolve();
+            })
+        }, 1000);
     }
 
     editPartial(id, body) {
-        const index = this.trainers.findIndex(trainer => trainer.id === parseInt(id));
-        if (index !== -1) {
-            const copyTrainer = { ...this.trainers[index] };
-            this.trainers[index] =  { ...copyTrainer, ...body };
-        }
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const index = this.trainers.findIndex(trainer => trainer.id === parseInt(id));
+                if (index !== -1) {
+                    const copyTrainer = { ...this.trainers[index] };
+                    this.trainers[index] =  { ...copyTrainer, ...body };
+                    resolve();
+                }
+            })
+        }, 1000);
     }
 
     updateComplete(id, body) {
-        const index = this.trainers.findIndex(trainer => trainer.id === parseInt(id));
-        if (index !== -1) {
-            const copyTrainer = { ...this.trainers[index] };
-            this.trainers[index] =  { ...copyTrainer, ...body };
-        }
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const index = this.trainers.findIndex(trainer => trainer.id === parseInt(id));
+                if (index !== -1) {
+                    const copyTrainer = { ...this.trainers[index] };
+                    this.trainers[index] =  { ...copyTrainer, ...body };
+                    resolve();
+                }
+            })
+        }, 1000);
     }
 
     delete(id) {
-        const index = this.trainers.findIndex(trainer => trainer.id === parseInt(id));
-        if (index !== -1) {
-            this.trainers.splice(index, 1);
-        }
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const index = this.trainers.findIndex(trainer => trainer.id === parseInt(id));
+                if (index !== -1) {
+                    this.trainers.splice(index, 1);
+                    resolve();
+                }
+            })
+        }, 1000);
     }
 
 }
