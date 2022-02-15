@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "9a6259ba-1b03-4c3d-96c9-9122cbf1a145",
+		"name": "2_json_server_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{jsonserver-pokemon}}/pokemons",
+					"host": [
+						"{{jsonserver-pokemon}}"
+					],
+					"path": [
+						"pokemons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAll with filters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{jsonserver-pokemon}}/pokemons/?type=normal&evolve=false",
+					"host": [
+						"{{jsonserver-pokemon}}"
+					],
+					"path": [
+						"pokemons",
+						""
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "normal"
+						},
+						{
+							"key": "evolve",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOne",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{jsonserver-pokemon}}/pokemons/1",
+					"host": [
+						"{{jsonserver-pokemon}}"
+					],
+					"path": [
+						"pokemons",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPokemon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"10\",\n    \"name\": \"weedle\",\n    \"type\": \"bug\",\n    \"url\": \"https://pokeapi.co/api/v2/pokemon/10/\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{jsonserver-pokemon}}/pokemons",
+					"host": [
+						"{{jsonserver-pokemon}}"
+					],
+					"path": [
+						"pokemons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editComplete",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"123\",\n    \"name\": \"snorlax\",\n    \"type\": \"normal\",\n    \"evolve\": false,\n    \"url\": \"https://pokeapi.co/api/v2/pokemon/123/\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{jsonserver-pokemon}}/pokemons/122",
+					"host": [
+						"{{jsonserver-pokemon}}"
+					],
+					"path": [
+						"pokemons",
+						"122"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editPartial",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"mega blastoise\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{jsonserver-pokemon}}/pokemons/122",
+					"host": [
+						"{{jsonserver-pokemon}}"
+					],
+					"path": [
+						"pokemons",
+						"122"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePokemon",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{jsonserver-pokemon}}/pokemons/10",
+					"host": [
+						"{{jsonserver-pokemon}}"
+					],
+					"path": [
+						"pokemons",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
