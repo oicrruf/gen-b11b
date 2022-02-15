@@ -1,8 +1,12 @@
 const express = require('express');
 const pokemonRouter = express.Router();
+const PokemonesServices = require('../../services/pokemones/pokemones.services');
 
-pokemonRouter.get("/", (req, res) => {
-	res.send("hola soy un pokemon!");
+const servicePokemonObject = new PokemonesServices();
+
+pokemonRouter.get("/", async (req, res) => {
+	const data = await servicePokemonObject.getAll();
+	res.json({data});
 });
 
 module.exports = pokemonRouter;
