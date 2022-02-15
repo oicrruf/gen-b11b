@@ -1,0 +1,12 @@
+<%- include('../template/navbar', {title: title}) %>
+<div class="pokemon">
+  <h1><%= data.name %></h1>
+  <img
+    src="<%= data.sprites.other.dream_world.front_default %>"
+    alt=""
+    srcset=""
+    height="200"
+  />
+  <h3><%= data.id %></h3>
+</div>
+<%- include('../template/footer') %>

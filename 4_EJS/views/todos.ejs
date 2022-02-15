@@ -1,0 +1,10 @@
+<%- include('../template/navbar', {title: title}) %>
+<ul>
+  <% data.results.forEach(function(pokemon) { %>
+  <li class="pokemon-list">
+    <a href="/pokemon/<%- pokemon.name %>"><%- pokemon.name %></a>
+  </li>
+  <% }); %>
+</ul>
+
+<%- include('../template/footer') %>
